@@ -1,4 +1,4 @@
-# Setup node and a validator script
+# Setup shido node
 
 This repository contains a script for setting up a node on shido blockchain. 
 
