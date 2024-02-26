@@ -78,13 +78,16 @@ fi
 # Setup local node if overwrite is set to Yes, otherwise skip setup
 if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Remove the previous folder
-	rm -rf "$HOMEDIR"
+	sudo rm -rf "$HOMEDIR"
   current_path=$(pwd)
 
 	# Set client config
 	shidod config keyring-backend $KEYRING --home "$HOMEDIR"
 	shidod config chain-id $CHAINID --home "$HOMEDIR"
+  echo "===========================Copy these keys with mnemonics aand save it in safe place ==================================="
 	shidod keys add $KEYS --keyring-backend $KEYRING --algo $KEYALGO --home "$HOMEDIR"
+  echo "========================================================================================================================"
+	echo "========================================================================================================================"
 	shidod init $MONIKER -o --chain-id $CHAINID --home "$HOMEDIR"
 
 	#changes status in app,config files
